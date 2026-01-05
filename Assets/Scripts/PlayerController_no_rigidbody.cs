@@ -6,11 +6,13 @@ public class PlayerController_no_rigidbody : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private float mouseSensitivity = 1f;
+    [SerializeField] private float thirdPersonDistance = 5f;  // Distance behind player in third-person
+    [SerializeField] private float thirdPersonHeight = 2f;    // Height offset for third-person camera
     private CharacterController characterController;
     private Vector2 moveAmount;
     private Vector2 lookAmount;
     private float verticalRotation = 0f;
-
+    private bool isThirdPerson = false;  // Toggle for view mode
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +27,25 @@ public class PlayerController_no_rigidbody : MonoBehaviour
         characterController.Move(move * (speed * Time.deltaTime));
     }
 
+    // This should all probably be in a camera controller or something
+    void LateUpdate()
+    {
+        if (Camera.main == null) return;
+
+        if (isThirdPerson)
+        {
+            // Third-person: Position camera behind player and look at them
+            Vector3 desiredPosition = transform.position - transform.forward * thirdPersonDistance + Vector3.up * thirdPersonHeight;
+            Camera.main.transform.position = desiredPosition;
+            Camera.main.transform.LookAt(transform.position + Vector3.up * 1f);  // Look at player's approximate head height
+        }
+        else
+        {
+            // First-person: Camera at player position, rotation handled in OnLook
+            Camera.main.transform.position = transform.position;
+        }
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 inputVector = context.ReadValue<Vector2>();
@@ -34,7 +55,11 @@ public class PlayerController_no_rigidbody : MonoBehaviour
 
     public void OnViewSwitch(InputAction.CallbackContext context)
     {
-
+        if (context.performed)  // Only toggle on button press (not release)
+        {
+            isThirdPerson = !isThirdPerson;
+            Debug.Log("Switched to " + (isThirdPerson ? "Third-Person" : "First-Person") + " view");
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -42,10 +67,13 @@ public class PlayerController_no_rigidbody : MonoBehaviour
         Vector2 inputVector = context.ReadValue<Vector2>();
         Debug.Log(inputVector);
         lookAmount = inputVector * mouseSensitivity;
-        transform.Rotate(0, lookAmount.x, 0);
 
-        verticalRotation -= lookAmount.y;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
-        if (Camera.main != null) Camera.main.transform.rotation = Quaternion.Euler(verticalRotation, transform.rotation.eulerAngles.y, 0);
+        transform.Rotate(0, lookAmount.x, 0);
+        if (!isThirdPerson)
+        {
+            verticalRotation -= lookAmount.y;
+            verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
+            Camera.main.transform.rotation = Quaternion.Euler(verticalRotation, transform.rotation.eulerAngles.y, 0);
+        }
     }
 }
