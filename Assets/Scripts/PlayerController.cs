@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float jumpForce = 10f;
     [SerializeField] private TMPro.TMP_Text hitText;
     [SerializeField] LayerMask interactablesLayerMask;
     private Rigidbody rb;
@@ -50,13 +49,6 @@ public class PlayerController : MonoBehaviour
         }
         hitText.text = lastHitName;
     }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        Debug.Log("Jump");
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-    }
-
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 inputVector = context.ReadValue<Vector2>();
