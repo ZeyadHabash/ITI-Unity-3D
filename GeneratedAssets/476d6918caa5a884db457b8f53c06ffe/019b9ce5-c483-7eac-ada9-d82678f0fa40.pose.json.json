@@ -1,0 +1,11 @@
+{
+    "asset": "476d6918caa5a884db457b8f53c06ffe",
+    "fileName": "019b9ce5-c483-7eac-ada9-d82678f0fa40.pose.json",
+    "prompt": "hitting the griddy",
+    "negativePrompt": "",
+    "model": "9e46c009-67d8-4254-a3a0-32e3168247ee",
+    "modelName": "Text to Motion",
+    "customSeed": 164960113,
+    "w3CTraceId": "ba4943cc2a340dbe444a901983ec1d34",
+    "isTrimmed": false
+}

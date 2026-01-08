@@ -1,0 +1,13 @@
+{
+    "asset": "02fcc400fb97f264ab509f012e7d866a",
+    "fileName": "019b9ce2-68f8-70d5-91c9-8307c9e822c3.wav",
+    "prompt": "Prog rock music inspired by chris christodoulo's work on risk of rain 2",
+    "negativePrompt": "",
+    "model": "7df9b85a-1695-49f7-89bf-988208d5a3bc",
+    "modelName": "Meta MusicGen",
+    "customSeed": -1,
+    "w3CTraceId": "5daf4f7ef85226e9b532f3ec01e8d36b",
+    "duration": 10.0,
+    "autoTrim": false,
+    "hasReference": false
+}

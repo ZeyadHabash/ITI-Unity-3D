@@ -1,0 +1,11 @@
+{
+    "asset": "7890a9d6d8f29b9469a5d488c80bd80d",
+    "fileName": "019b9ce9-a871-7352-8113-c3503946cda1.pose.json",
+    "prompt": "Grabbing an arrow from the quiver on the back and firing it through a bow",
+    "negativePrompt": "",
+    "model": "9e46c009-67d8-4254-a3a0-32e3168247ee",
+    "modelName": "Text to Motion",
+    "customSeed": 1425411287,
+    "w3CTraceId": "e770d062a752368afde489fca45fcdaa",
+    "isTrimmed": false
+}

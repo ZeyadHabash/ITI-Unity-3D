@@ -1,0 +1,20 @@
+{
+    "asset": "378d90b5b9d5e6d419fe4edbf69b4704",
+    "fileName": "019b9cdd-ee46-74cf-a09d-4c672347d510.png",
+    "prompt": "skybox inspired by hades",
+    "negativePrompt": "",
+    "model": "5b5b2af1-6ea4-4266-b087-cc9f3bf4f450",
+    "modelName": "Flux.1 Dev",
+    "customSeed": -1,
+    "w3CTraceId": "085d84ffbaf2905ef24eeec1ce92a2aa",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}

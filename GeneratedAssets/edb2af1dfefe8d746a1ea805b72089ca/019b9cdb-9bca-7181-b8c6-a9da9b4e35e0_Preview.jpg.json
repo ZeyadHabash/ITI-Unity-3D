@@ -1,0 +1,11 @@
+{
+    "asset": "edb2af1dfefe8d746a1ea805b72089ca",
+    "fileName": "019b9cdb-9bca-7181-b8c6-a9da9b4e35e0_Preview.jpg",
+    "prompt": "tiled stone",
+    "negativePrompt": "",
+    "model": "dbb35e61-f5e2-4e71-a7af-b563ed9472ed",
+    "modelName": "Hand Painted Textures 2.0",
+    "customSeed": 1961173020,
+    "w3CTraceId": "d7ffe63de1e420ae5279babce22c1f3c",
+    "refinementMode": "Generation"
+}
